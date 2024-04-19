@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ recipe.name }}{% endblock %}
+
+{% block content %}
+
+<div>
+    <h2>{{ recipe.name }}</h2>
+    <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}" width="200px">
+    <p>Время приготовления: {{ recipe.cooking_time }}</p>
+    <p>Описание:<br>{{ recipe.description }}</p>
+    <p>Приготовление:<br>{{ recipe.cooking_steps }}</p>
+    <p>Автор: {{ recipe.author }}</p>
+</div>
+
+{% endblock %}

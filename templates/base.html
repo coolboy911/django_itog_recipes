@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Сайт{% endblock %}</title>
+</head>
+<body>
+    <div>
+        {% if user.username %}
+            Привет, {{ user }}!
+            <a href="{% url 'create_recipe' %}">Создать новый рецепт рецепт</a>
+            <a href="{% url 'logout_view' %}">Выйти из аккаунта</a>
+        {% else %}
+            <a href="{% url 'login_view' %}">Войти</a>
+            <a href="{% url 'register_view' %}">Зарегистрироваться</a>
+        {% endif %}
+        <a href="{% url 'index' %}">Главная</a>
+        <a href="{% url 'view_all_recipes' %}">Все рецепты</a>
+    </div>
+    {% if warning_message %}
+        <h3>{{ warning_message }}</h3>
+    {% endif %}
+
+    {% block content %}
+        <p>Скоро тут появится текст...</p>
+    {% endblock %}
+<footer>Базовый шаблон проекта</footer>
+</body>
+</html>
